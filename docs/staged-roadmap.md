@@ -130,6 +130,26 @@ b1dbb27 Record deployment test results
 - 至少一个 Qwen-Image workflow 能运行。
 - 记录模型体积、下载来源、运行速度和适合任务。
 
+当前进展：
+
+- Qwen-Image 核心三件套已安装：
+  - `qwen_image_fp8_e4m3fn.safetensors`
+  - `qwen_2.5_vl_7b_fp8_scaled.safetensors`
+  - `qwen_image_vae.safetensors`
+- Qwen-Image Lightning LoRA 已安装：
+  - `Qwen-Image-Lightning-8steps-V1.0.safetensors`
+- 最小 workflow：`workflows/qwen_image_lightning_test.json`
+- 测试输出：`/Users/markus/AI/image-factory/outputs/qwen_image_lightning_test.png`
+- Qwen-Image 目标职责已明确：
+  - 中文元素较多的画面
+  - 广告牌、UI、文档、海报类画面
+  - 后续可扩展到 Qwen-Image-Edit
+
+下一步：
+
+- 补 FLUX 可行模型并做关键帧 smoke test。
+- 如果 FLUX 下载过重或授权复杂，先把 Qwen-Image-Edit 接入。
+
 ## 阶段 6：视频模型实验
 
 状态：实验项。

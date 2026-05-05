@@ -34,7 +34,10 @@
 | 角色 | 文件 | 状态 | 备注 |
 | --- | --- | --- | --- |
 | FLUX | `ComfyUI/models/diffusion_models/` | 待下载 | 开篇图、封面、关键帧 |
-| Qwen-Image | `ComfyUI/models/diffusion_models/` | 待下载 | 中文元素较多的图像 |
+| Qwen-Image UNet | `ComfyUI/models/diffusion_models/qwen_image_fp8_e4m3fn.safetensors` | 已安装 | 通过符号链接指向 `split_files/diffusion_models/` |
+| Qwen-Image Text Encoder | `ComfyUI/models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors` | 已安装 | 通过符号链接指向 `split_files/text_encoders/` |
+| Qwen-Image VAE | `ComfyUI/models/vae/qwen_image_vae.safetensors` | 已安装 | 通过符号链接指向 `split_files/vae/` |
+| Qwen-Image Lightning LoRA | `ComfyUI/models/loras/Qwen-Image-Lightning-8steps-V1.0.safetensors` | 已安装 | 用于 8 steps 快速测试 |
 | Qwen-Image-Edit | `ComfyUI/models/diffusion_models/` | 待下载 | 语义编辑和局部修图 |
 
 ## 视频实验
@@ -55,6 +58,7 @@
 | 2026-05-05 | SDXL + IPAdapter 参考图生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_ipadapter_test.png` |
 | 2026-05-05 | SDXL + Depth ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_depth_test.png` |
 | 2026-05-05 | SDXL + OpenPose ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_openpose_test.png` |
+| 2026-05-05 | Qwen-Image Lightning 生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/qwen_image_lightning_test.png` |
 
 ## 当前生产建议
 
@@ -63,6 +67,7 @@
 - 当前不要用默认 `dpmpp_2m_sde + karras` 跑 `1024x1536`，部分 seed 会生成纯黑图。
 - ControlNet Canny、Depth、OpenPose 的最小工作流均已通过，可以继续合并为正式 panel workflow。
 - IPAdapter 参考图链路已通过，可以进入角色卡参考图测试。
+- Qwen-Image Lightning 已通过 512x768 中文图像 smoke test，可作为中文元素较多画面的第二条生成线。
 
 ## 当前阶段
 

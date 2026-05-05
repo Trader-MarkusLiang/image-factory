@@ -16,6 +16,7 @@ sdxl_inpaint.json
 flux_keyframe.json
 qwen_text_image.json
 qwen_edit.json
+qwen_image_lightning_test.json
 ```
 
 内容项目中的脚本会在提交给 ComfyUI 前，把 prompt、尺寸和 seed patch 到这些 workflow 中。
@@ -30,6 +31,7 @@ qwen_edit.json
 - `sdxl_panel_controlnet_depth_test.json`：已通过 512x768 Depth ControlNet 测试。
 - `sdxl_panel_controlnet_openpose_test.json`：已通过 512x768 OpenPose ControlNet 测试。
 - `sdxl_panel_ipadapter_test.json`：已通过 512x768 IPAdapter 参考图测试。
+- `qwen_image_lightning_test.json`：已通过 512x768 Qwen-Image Lightning 测试。
 
 ## 尺寸建议
 
