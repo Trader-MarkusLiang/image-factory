@@ -1,0 +1,34 @@
+# Runtime installs
+ComfyUI/
+.venv/
+venv/
+
+# Large model weights and local runtime assets
+models/
+**/*.safetensors
+**/*.ckpt
+**/*.pt
+**/*.pth
+**/*.bin
+**/*.gguf
+**/*.onnx
+
+# Generated and temporary data
+outputs/
+cache/
+logs/
+inputs/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.mp4
+*.mov
+
+# Local config and OS files
+.env
+.env.local
+.DS_Store
+__pycache__/
+*.pyc
+
