@@ -144,6 +144,12 @@ b1dbb27 Record deployment test results
   - 中文元素较多的画面
   - 广告牌、UI、文档、海报类画面
   - 后续可扩展到 Qwen-Image-Edit
+- Qwen-Image-Edit workflow 骨架已写好：
+  - `workflows/qwen_image_edit_test.json`
+- `qwen_image_edit_2511_bf16.safetensors` 已下载并接入标准模型目录。
+- Qwen-Image-Edit 语义编辑 smoke test 已通过：
+  - 输入参考图：`ipadapter_ref_test.png`
+  - 输出：`/Users/markus/AI/image-factory/outputs/qwen_image_edit_test.png`
 
 下一步：
 
