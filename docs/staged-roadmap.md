@@ -35,7 +35,7 @@ b1dbb27 Record deployment test results
 
 ## 阶段 2：角色参考图锁定
 
-状态：进行中。
+状态：已完成。
 
 目标：
 
@@ -46,19 +46,27 @@ b1dbb27 Record deployment test results
 
 验收标准：
 
-- IPAdapter 模型文件完整。
-- CLIP Vision 模型文件完整。
-- 最小 reference workflow 能通过 API 运行。
-- 输出不是黑图，且能记录参考图输入路径。
+- IPAdapter 模型文件完整。已完成。
+- CLIP Vision 模型文件完整。已完成。
+- 最小 reference workflow 能通过 API 运行。已完成。
+- 输出不是黑图，且能记录参考图输入路径。已完成。
 
 风险：
 
 - `h94/IP-Adapter` 通过 HF-Mirror 下载速度慢。
 - 如果 HF-Mirror 卡住，改用 ModelScope 或可信直链。
 
+实际记录：
+
+- `ip-adapter-plus_sdxl_vit-h.safetensors` 已下载。
+- `models/image_encoder/model.safetensors` 已下载，用于匹配 ViT-H。
+- `sdxl_models/image_encoder/model.safetensors` 也已下载，但它是 bigG，不适配本次 plus vit-h 测试。
+- 最小 workflow：`workflows/sdxl_panel_ipadapter_test.json`。
+- 测试输出：`/Users/markus/AI/image-factory/outputs/sdxl_ipadapter_test.png`。
+
 ## 阶段 3：分镜控制扩展
 
-状态：待做。
+状态：进行中。
 
 目标：
 
@@ -144,4 +152,3 @@ b1dbb27 Record deployment test results
 - 每完成一个可验证阶段：单独提交。
 - 模型权重、ComfyUI、venv、输出图不提交。
 - 只提交脚本、文档、workflow、清单。
-

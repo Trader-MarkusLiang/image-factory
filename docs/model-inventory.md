@@ -24,7 +24,9 @@
 
 | 角色 | 文件 | 状态 | 备注 |
 | --- | --- | --- | --- |
-| IPAdapter | `ComfyUI/models/ipadapter/` | 部分下载 | HF-Mirror 下载很慢，已中断，后续换源补齐 |
+| IPAdapter | `ComfyUI/models/ipadapter/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors` | 已安装 | 已通过最小参考图 workflow |
+| CLIP Vision ViT-H | `ComfyUI/models/clip_vision/models/image_encoder/model.safetensors` | 已安装 | 与 `ip-adapter-plus_sdxl_vit-h` 匹配 |
+| CLIP Vision bigG | `ComfyUI/models/clip_vision/sdxl_models/image_encoder/model.safetensors` | 已安装 | 供其他 SDXL/IPAdapter 变体使用；不用于本次 plus vit-h 测试 |
 | 林砚 LoRA | `ComfyUI/models/loras/` | 待训练 | 角色锁定 |
 
 ## 关键帧和中文图像
@@ -49,13 +51,14 @@
 | 2026-05-05 | SDXL base 生成 768x1152 竖图 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_768x1152_test.png` |
 | 2026-05-05 | SDXL base 生成 1024x1536 竖图 | 未通过 | 输出为纯黑图，暂不作为默认生产尺寸 |
 | 2026-05-05 | SDXL + Canny ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_canny_test.png` |
+| 2026-05-05 | SDXL + IPAdapter 参考图生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_ipadapter_test.png` |
 
 ## 当前生产建议
 
 - 默认本地生产尺寸先使用 `768x1152`。
 - `1024x1536` 在当前 MPS/ComfyUI 组合下会生成纯黑图，后续需要单独排障。
 - ControlNet Canny 的最小工作流已通过，可以继续扩展 OpenPose、Depth 和正式 panel workflow。
-- IPAdapter 尚未完成下载，角色参考图锁定暂时先依赖 prompt、seed、LoRA 计划和 ControlNet。
+- IPAdapter 参考图链路已通过，可以进入角色卡参考图测试。
 
 ## 当前阶段
 
@@ -65,7 +68,7 @@
 docs/staged-roadmap.md
 ```
 
-当前推进到阶段 2：角色参考图锁定。
+当前推进到阶段 3：分镜控制扩展。
 
 ## 下载来源策略
 

@@ -7,6 +7,7 @@
 ```text
 sdxl_panel.json
 sdxl_panel_controlnet_canny_test.json
+sdxl_panel_ipadapter_test.json
 sdxl_panel_controlnet.json
 sdxl_inpaint.json
 flux_keyframe.json
@@ -22,6 +23,7 @@ qwen_edit.json
 
 - `sdxl_panel.json`：已通过 512x768 和 768x1152 测试。
 - `sdxl_panel_controlnet_canny_test.json`：已通过 512x768 Canny ControlNet 测试。
+- `sdxl_panel_ipadapter_test.json`：已通过 512x768 IPAdapter 参考图测试。
 
 ## 待排障
 
