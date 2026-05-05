@@ -93,7 +93,7 @@ b1dbb27 Record deployment test results
 
 ## 阶段 4：1024x1536 黑图排障
 
-状态：进行中。
+状态：已完成。
 
 目标：
 
@@ -103,12 +103,19 @@ b1dbb27 Record deployment test results
 
 验收标准：
 
-- 如果修复：`1024x1536` 连续生成 2 张有效图。
-- 如果不能修复：保留 `768x1152 -> upscale` 作为正式策略。
+- 如果修复：`1024x1536` 连续生成 2 张有效图。已完成。
+- 如果不能修复：保留 `768x1152 -> upscale` 作为正式策略。不需要作为唯一策略。
+
+实际记录：
+
+- 默认 `dpmpp_2m_sde + karras` 在 `1024x1536` 下出现纯黑图。
+- `euler + simple + 18 steps + cfg 5.5` 在 `1024x1536` 下连续两张有效。
+- 高分辨率 workflow：`workflows/sdxl_panel_euler_test.json`。
+- 默认建议：常规候选仍用 `768x1152`；高分辨率候选用 euler workflow。
 
 ## 阶段 5：关键帧和中文模型
 
-状态：待做。
+状态：进行中。
 
 目标：
 

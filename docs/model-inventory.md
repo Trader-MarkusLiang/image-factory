@@ -49,7 +49,8 @@
 | --- | --- | --- | --- |
 | 2026-05-05 | SDXL base 通过 ComfyUI MPS API 生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_smoke.png` |
 | 2026-05-05 | SDXL base 生成 768x1152 竖图 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_768x1152_test.png` |
-| 2026-05-05 | SDXL base 生成 1024x1536 竖图 | 未通过 | 输出为纯黑图，暂不作为默认生产尺寸 |
+| 2026-05-05 | SDXL base 使用默认 `dpmpp_2m_sde + karras` 生成 1024x1536 竖图 | 未通过 | 输出为纯黑图，不作为高分辨率默认采样配置 |
+| 2026-05-05 | SDXL base 使用 `euler + simple + 18 steps` 生成 1024x1536 竖图 | 通过 | 连续两张有效：`sdxl_1024x1536_euler_c01.png`、`sdxl_1024x1536_euler_seed2_c01.png` |
 | 2026-05-05 | SDXL + Canny ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_canny_test.png` |
 | 2026-05-05 | SDXL + IPAdapter 参考图生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_ipadapter_test.png` |
 | 2026-05-05 | SDXL + Depth ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_depth_test.png` |
@@ -57,8 +58,9 @@
 
 ## 当前生产建议
 
-- 默认本地生产尺寸先使用 `768x1152`。
-- `1024x1536` 在当前 MPS/ComfyUI 组合下会生成纯黑图，后续需要单独排障。
+- 默认本地生产尺寸先使用 `768x1152`，走 `sdxl_panel.json`。
+- 如果需要 `1024x1536`，使用 `sdxl_panel_euler_test.json` 的采样配置：`euler + simple + 18 steps + cfg 5.5`。
+- 当前不要用默认 `dpmpp_2m_sde + karras` 跑 `1024x1536`，部分 seed 会生成纯黑图。
 - ControlNet Canny、Depth、OpenPose 的最小工作流均已通过，可以继续合并为正式 panel workflow。
 - IPAdapter 参考图链路已通过，可以进入角色卡参考图测试。
 
@@ -70,7 +72,7 @@
 docs/staged-roadmap.md
 ```
 
-当前推进到阶段 4：1024x1536 黑图排障。
+当前推进到阶段 5：关键帧和中文模型。
 
 ## 下载来源策略
 

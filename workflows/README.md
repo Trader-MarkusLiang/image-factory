@@ -6,6 +6,7 @@
 
 ```text
 sdxl_panel.json
+sdxl_panel_euler_test.json
 sdxl_panel_controlnet_canny_test.json
 sdxl_panel_controlnet_depth_test.json
 sdxl_panel_controlnet_openpose_test.json
@@ -24,11 +25,13 @@ qwen_edit.json
 ## 已验证
 
 - `sdxl_panel.json`：已通过 512x768 和 768x1152 测试。
+- `sdxl_panel_euler_test.json`：已通过 1024x1536 连续两张测试，用于高分辨率候选。
 - `sdxl_panel_controlnet_canny_test.json`：已通过 512x768 Canny ControlNet 测试。
 - `sdxl_panel_controlnet_depth_test.json`：已通过 512x768 Depth ControlNet 测试。
 - `sdxl_panel_controlnet_openpose_test.json`：已通过 512x768 OpenPose ControlNet 测试。
 - `sdxl_panel_ipadapter_test.json`：已通过 512x768 IPAdapter 参考图测试。
 
-## 待排障
+## 尺寸建议
 
-- `1024x1536` 当前会生成纯黑图，暂不作为默认生产尺寸。
+- `768x1152`：常规默认尺寸。
+- `1024x1536`：使用 `sdxl_panel_euler_test.json`，不要使用默认 `dpmpp_2m_sde + karras` 配置。
