@@ -1,8 +1,8 @@
-# Workflow Directory
+# Workflow 目录
 
-Place ComfyUI API-format workflow JSON files here.
+这里保存可提交的 ComfyUI API-format workflow JSON。
 
-Expected names:
+预期文件名：
 
 ```text
 sdxl_panel.json
@@ -13,5 +13,7 @@ qwen_text_image.json
 qwen_edit.json
 ```
 
-The content project scripts patch prompts, image size, and seeds into these workflows before submitting them to ComfyUI.
+内容项目中的脚本会在提交给 ComfyUI 前，把 prompt、尺寸和 seed patch 到这些 workflow 中。
+
+模型权重、缓存和生成输出不要放在这个目录。
 

@@ -1,72 +1,73 @@
-# Download Strategy For China Mainland Networks
+# 国内网络模型下载策略
 
-Large model downloads should use a source strategy instead of ad hoc browser downloads.
+大模型下载必须使用固定策略，不要每次临时从浏览器手动下载。
 
-Priority:
+推荐优先级：
 
 ```text
-1. ModelScope official model page or mirrored model
-2. Hugging Face through HF-Mirror
-3. Hugging Face official endpoint
-4. Direct URL with resumable curl
+1. ModelScope 官方模型页或可信镜像
+2. Hugging Face + HF-Mirror
+3. Hugging Face 官方源
+4. 可信直链 + 断点续传
 ```
 
-## Hugging Face Mirror
+## HF-Mirror
 
-Use:
+环境变量：
 
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com
 export HF_HUB_ENABLE_HF_TRANSFER=1
+export HF_HUB_OFFLINE=0
 ```
 
-Example:
+示例：
 
 ```bash
 /Users/markus/AI/image-factory/scripts/download_model.sh \
   --source hf-mirror \
   --repo owner/model \
   --filename model.safetensors \
-  --local-dir /Users/markus/AI/image-factory/models/checkpoints
+  --local-dir /Users/markus/AI/image-factory/ComfyUI/models/checkpoints
 ```
 
 ## ModelScope
 
-Use ModelScope when the model exists there with the same license and expected files.
+当同一模型在 ModelScope 上有官方发布或可信同步版本时，优先使用 ModelScope。
 
-Install CLI:
+安装 CLI：
 
 ```bash
 python3 -m pip install -U modelscope
 ```
 
-Example:
+示例：
 
 ```bash
 /Users/markus/AI/image-factory/scripts/download_model.sh \
   --source modelscope \
   --repo owner/model \
   --filename model.safetensors \
-  --local-dir /Users/markus/AI/image-factory/models/checkpoints
+  --local-dir /Users/markus/AI/image-factory/ComfyUI/models/checkpoints
 ```
 
-## Direct URL
+## 可信直链
 
-Use direct URL only for official release assets or trusted mirrors.
+只在官方 release、官方 CDN 或可信镜像提供文件时使用。
 
 ```bash
 /Users/markus/AI/image-factory/scripts/download_model.sh \
   --source url \
   --url "https://example.com/model.safetensors" \
-  --local-dir /Users/markus/AI/image-factory/models/checkpoints
+  --local-dir /Users/markus/AI/image-factory/ComfyUI/models/checkpoints
 ```
 
-## Rules
+## 规则
 
-- Prefer `.safetensors` over `.ckpt` when available.
-- Record every downloaded file in `docs/model-inventory.md`.
-- Do not mix unofficial renamed files into production workflows without noting origin.
-- Keep model weights outside the content project.
-- For gated models, use the official source and token instead of unofficial reuploads.
-- If a mirror is down, switch source but keep the same destination folder.
+- 优先使用 `.safetensors`，避免来源不清的 `.ckpt`。
+- 每次下载后更新 `docs/model-inventory.md`。
+- 不把模型权重复制到漫画内容项目。
+- 不把模型权重提交到 Git。
+- gated 模型必须使用官方授权来源和 token。
+- 镜像不可用时可以切换来源，但目标目录保持一致。
 
