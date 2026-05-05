@@ -46,6 +46,16 @@
 | 日期 | 测试 | 结果 | 输出 |
 | --- | --- | --- | --- |
 | 2026-05-05 | SDXL base 通过 ComfyUI MPS API 生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_smoke.png` |
+| 2026-05-05 | SDXL base 生成 768x1152 竖图 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_768x1152_test.png` |
+| 2026-05-05 | SDXL base 生成 1024x1536 竖图 | 未通过 | 输出为纯黑图，暂不作为默认生产尺寸 |
+| 2026-05-05 | SDXL + Canny ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_canny_test.png` |
+
+## 当前生产建议
+
+- 默认本地生产尺寸先使用 `768x1152`。
+- `1024x1536` 在当前 MPS/ComfyUI 组合下会生成纯黑图，后续需要单独排障。
+- ControlNet Canny 的最小工作流已通过，可以继续扩展 OpenPose、Depth 和正式 panel workflow。
+- IPAdapter 尚未完成下载，角色参考图锁定暂时先依赖 prompt、seed、LoRA 计划和 ControlNet。
 
 ## 下载来源策略
 
