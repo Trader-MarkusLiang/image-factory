@@ -66,7 +66,7 @@ b1dbb27 Record deployment test results
 
 ## 阶段 3：分镜控制扩展
 
-状态：进行中。
+状态：已完成。
 
 目标：
 
@@ -77,14 +77,23 @@ b1dbb27 Record deployment test results
 
 验收标准：
 
-- Canny：构图线稿输入可用。
-- OpenPose：姿态控制输入可用。
-- Depth：空间层次输入可用。
-- 三类 workflow 都能通过 API 跑出非黑图。
+- Canny：构图线稿输入可用。已完成。
+- OpenPose：姿态控制输入可用。已完成。
+- Depth：空间层次输入可用。已完成。
+- 三类 workflow 都能通过 API 跑出非黑图。已完成。
+
+实际记录：
+
+- Canny workflow：`workflows/sdxl_panel_controlnet_canny_test.json`。
+- Depth workflow：`workflows/sdxl_panel_controlnet_depth_test.json`。
+- OpenPose workflow：`workflows/sdxl_panel_controlnet_openpose_test.json`。
+- Canny 输出：`/Users/markus/AI/image-factory/outputs/sdxl_controlnet_canny_test.png`。
+- Depth 输出：`/Users/markus/AI/image-factory/outputs/sdxl_controlnet_depth_test.png`。
+- OpenPose 输出：`/Users/markus/AI/image-factory/outputs/sdxl_controlnet_openpose_test.png`。
 
 ## 阶段 4：1024x1536 黑图排障
 
-状态：待做。
+状态：进行中。
 
 目标：
 

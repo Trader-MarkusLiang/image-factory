@@ -52,12 +52,14 @@
 | 2026-05-05 | SDXL base 生成 1024x1536 竖图 | 未通过 | 输出为纯黑图，暂不作为默认生产尺寸 |
 | 2026-05-05 | SDXL + Canny ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_canny_test.png` |
 | 2026-05-05 | SDXL + IPAdapter 参考图生成 512x768 图像 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_ipadapter_test.png` |
+| 2026-05-05 | SDXL + Depth ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_depth_test.png` |
+| 2026-05-05 | SDXL + OpenPose ControlNet 生成 512x768 控制图测试 | 通过 | `/Users/markus/AI/image-factory/outputs/sdxl_controlnet_openpose_test.png` |
 
 ## 当前生产建议
 
 - 默认本地生产尺寸先使用 `768x1152`。
 - `1024x1536` 在当前 MPS/ComfyUI 组合下会生成纯黑图，后续需要单独排障。
-- ControlNet Canny 的最小工作流已通过，可以继续扩展 OpenPose、Depth 和正式 panel workflow。
+- ControlNet Canny、Depth、OpenPose 的最小工作流均已通过，可以继续合并为正式 panel workflow。
 - IPAdapter 参考图链路已通过，可以进入角色卡参考图测试。
 
 ## 当前阶段
@@ -68,7 +70,7 @@
 docs/staged-roadmap.md
 ```
 
-当前推进到阶段 3：分镜控制扩展。
+当前推进到阶段 4：1024x1536 黑图排障。
 
 ## 下载来源策略
 
