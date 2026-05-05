@@ -57,6 +57,16 @@
 - ControlNet Canny 的最小工作流已通过，可以继续扩展 OpenPose、Depth 和正式 panel workflow。
 - IPAdapter 尚未完成下载，角色参考图锁定暂时先依赖 prompt、seed、LoRA 计划和 ControlNet。
 
+## 当前阶段
+
+详细路线见：
+
+```text
+docs/staged-roadmap.md
+```
+
+当前推进到阶段 2：角色参考图锁定。
+
 ## 下载来源策略
 
 优先级：

@@ -85,5 +85,5 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 docs/download-strategy.md
 docs/model-inventory.md
 docs/first-batch-models.md
+docs/staged-roadmap.md
 ```
-
